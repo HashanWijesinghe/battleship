@@ -1,3 +1,7 @@
+# Battleship
+
+A simple game of battleship which supports 1 player at the moment.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
