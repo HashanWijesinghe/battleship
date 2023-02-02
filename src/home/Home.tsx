@@ -29,15 +29,23 @@ const Div = styled.div<{ flex?: number }>`
   width: 100%;
 `;
 
+const ScoreBoardContainer = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+`;
+
 const Home = () => {
   return (
     <Container>
       <Div flex={2}>
         <Grid />
       </Div>
-      <Div>
+      <ScoreBoardContainer>
         <ScoreBoard />
-      </Div>
+      </ScoreBoardContainer>
     </Container>
   );
 };
