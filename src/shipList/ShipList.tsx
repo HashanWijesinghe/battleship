@@ -48,14 +48,24 @@ const ShipList: FC = (): JSX.Element => {
 
   return (
     <OuterContainer>
-      <ShipListContainer>
+      <ShipListContainer key="shipList-1">
         {objectEntriesFirst3.map(([key, value]) => (
-          <ShipListItem ship={ShipTypes[key]} hits={0} maxHits={value.size} />
+          <ShipListItem
+            key={key}
+            ship={ShipTypes[key]}
+            hits={0}
+            maxHits={value.size}
+          />
         ))}
       </ShipListContainer>
-      <ShipListContainer>
+      <ShipListContainer key="shipList-2">
         {objectEntries.map(([key, value]) => (
-          <ShipListItem ship={ShipTypes[key]} hits={0} maxHits={value.size} />
+          <ShipListItem
+            key={key}
+            ship={ShipTypes[key]}
+            hits={0}
+            maxHits={value.size}
+          />
         ))}
       </ShipListContainer>
     </OuterContainer>
