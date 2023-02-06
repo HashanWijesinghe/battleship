@@ -1,16 +1,21 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
-// import App from './App';
+import App from './App';
 import Home from './home/Home';
 import reportWebVitals from './reportWebVitals';
+import Main from './Main';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Home />
+    <BrowserRouter>
+      <Main />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

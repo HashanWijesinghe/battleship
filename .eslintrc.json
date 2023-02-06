@@ -44,16 +44,10 @@
         "unnamedComponents": "arrow-function"
       }
     ],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": false,
-        "optionalDependencies": false,
-        "peerDependencies": false
-      }
-    ],
     "@typescript-eslint/no-unused-vars": "warn",
     "react/prop-types": "off", // Since we do not use prop-types
-    "react/require-default-props": "off" // Since we do not use prop-types
+    "react/require-default-props": "off", // Since we do not use prop-types
+    "import/no-extraneous-dependencies": "off",
+    ]
   }
 }
