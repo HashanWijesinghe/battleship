@@ -14,11 +14,9 @@ const Container = styled.div`
 
   @media only screen and (min-width: 600px) {
     background-color: yellow;
-    /* flex-direction: row; */
   }
   @media only screen and (min-width: 768px) {
     background-color: green;
-    /* flex-direction: row; */
   }
 `;
 
@@ -32,6 +30,14 @@ const GridContainer = styled.div<{ flex?: number }>`
   width: 90%;
 `;
 
+const InfoContainer = styled.div<{ flex?: number }>`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-start;
+`;
+
 const ScoreBoardContainer = styled.div`
   display: flex;
   flex: 1;
@@ -39,7 +45,6 @@ const ScoreBoardContainer = styled.div`
   align-items: flex-start;
   flex-direction: row;
   width: 100%;
-  /* border-top: 1px solid red; */
 `;
 
 const Home = () => {
@@ -48,10 +53,12 @@ const Home = () => {
       <GridContainer flex={1}>
         <Grid />
       </GridContainer>
-      <ScoreBoardContainer>
-        <ScoreBoard />
-      </ScoreBoardContainer>
-      <ScoreBoardContainer>{/* <ShipList /> */}</ScoreBoardContainer>
+      <InfoContainer>
+        <ScoreBoardContainer>
+          <ScoreBoard />
+        </ScoreBoardContainer>
+        <ShipList />
+      </InfoContainer>
     </Container>
   );
 };
