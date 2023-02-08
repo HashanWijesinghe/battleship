@@ -9,7 +9,7 @@ import Submarine from '@assets/Submarine Shape.png';
 import ShipListItem from '@src/components/ShipListItem';
 import { RootState } from '@store/store';
 import { ViewportWidthBreakpoints } from '@shared/constants';
-import mock from '../mockData.json';
+import mock from '@src/mockData.json';
 
 const ShipTypes: { [x: string]: string } = {
   battleship: Battleship,

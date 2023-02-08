@@ -14,7 +14,6 @@ const Container = styled.div`
   height: 95%;
   margin: 0;
   padding: 0;
-  /* overflow-y: hidden; */
 
   @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
     margin: 0.5em;
