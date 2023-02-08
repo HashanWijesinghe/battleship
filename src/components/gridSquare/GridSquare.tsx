@@ -1,13 +1,14 @@
 import { FC, memo, useCallback } from 'react';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
 import colors from '../../styles/colors';
 import Hit from '../../assets/Hit.png';
 import Miss from '../../assets/Miss.png';
+import { RootState } from '../../store/store';
+import { playerOneFire } from '../../store/gameSlice';
 
 interface GridSquareProps {
-  status?: number;
   coordinates: { row: number; col: number };
-  handlePress?: (coordinates: { row: number; col: number }) => void;
 }
 
 const Square = styled.div`
@@ -20,21 +21,38 @@ const Square = styled.div`
   align-items: center;
 `;
 
-const GridSquare: FC<GridSquareProps> = ({
-  status,
-  coordinates,
-  handlePress = () => {},
-}) => {
-  const onPressHandler = useCallback(
-    () => handlePress(coordinates),
-    [coordinates, handlePress]
+const GridSquare: FC<GridSquareProps> = memo(({ coordinates }) => {
+  const dispatch = useDispatch();
+
+  const hit = useSelector((state: RootState) =>
+    JSON.stringify(state.game.player1.playerHits).includes(
+      `${[coordinates.row, coordinates.col]}`
+    )
   );
+  const fired = useSelector((state: RootState) =>
+    JSON.stringify(state.game.player1.playerShots).includes(
+      `${[coordinates.row, coordinates.col]}`
+    )
+  );
+
+  const onPressHandler = useCallback(() => {
+    if (fired) {
+      return;
+    }
+    dispatch(playerOneFire([coordinates.row, coordinates.col]));
+  }, [coordinates.col, coordinates.row, dispatch, fired]);
+
   return (
-    <Square onClick={onPressHandler}>
-      {status === 0 && <img src={Miss} alt="miss" width="100%" height="100%" />}
-      {status === 1 && <img src={Hit} alt="hit" width="100%" height="100%" />}
+    <Square
+      key={`${coordinates.row}-${coordinates.col}-square`}
+      onClick={onPressHandler}
+    >
+      {fired && !hit && (
+        <img src={Miss} alt="miss" width="100%" height="100%" />
+      )}
+      {fired && hit && <img src={Hit} alt="hit" width="100%" height="100%" />}
     </Square>
   );
-};
+});
 
-export default memo(GridSquare);
+export default GridSquare;

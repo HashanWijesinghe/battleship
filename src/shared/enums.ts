@@ -6,3 +6,8 @@ export enum ShipTypes {
   Submarine = 'submarine',
   Destroyer = 'destroyer',
 }
+
+export enum PlayerTypes {
+  Player1 = 'Player1',
+  Player2 = 'Player2',
+}

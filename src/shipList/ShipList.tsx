@@ -1,5 +1,6 @@
 import React, { FC, memo } from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 import Aircraft from '../assets/Aircraft Shape.png';
 import Battleship from '../assets/Battleship Shape.png';
 import Carrier from '../assets/Carrier Shape.png';
@@ -8,6 +9,7 @@ import Submarine from '../assets/Submarine Shape.png';
 import ShipListItem from '../shipListItem/ShipListItem';
 import mock from '../mockData.json';
 import { ViewportWidthBreakpoints } from '../shared/constants';
+import { RootState } from '../store/store';
 
 const ShipTypes: { [x: string]: string } = {
   battleship: Battleship,
@@ -43,6 +45,11 @@ const ShipListContainer = styled.div`
 `;
 
 const ShipList: FC = (): JSX.Element => {
+  const shipHits = useSelector(
+    (state: RootState) => state.game.player2.ownShipHits
+  );
+
+  // to break into 2 groups
   const objectEntries = Object.entries(mock.shipTypes);
   const objectEntriesFirst3 = objectEntries.splice(0, 3);
 
@@ -53,7 +60,7 @@ const ShipList: FC = (): JSX.Element => {
           <ShipListItem
             key={key}
             ship={ShipTypes[key]}
-            hits={0}
+            hits={shipHits[key]}
             maxHits={value.size}
           />
         ))}
@@ -63,7 +70,7 @@ const ShipList: FC = (): JSX.Element => {
           <ShipListItem
             key={key}
             ship={ShipTypes[key]}
-            hits={0}
+            hits={shipHits[key]}
             maxHits={value.size}
           />
         ))}

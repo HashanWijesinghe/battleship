@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { FC, memo } from 'react';
+import { FC } from 'react';
 
 import Home from './home/Home';
 import DefaultLayout from './layouts/DefaultLayout';
