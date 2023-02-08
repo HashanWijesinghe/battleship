@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import strings from '../shared/strings';
-import mockData from '../mockData.json';
+import strings from '@shared/strings';
+import mockData from '@src/mockData.json';
 
 export interface GameState {
   player1: {

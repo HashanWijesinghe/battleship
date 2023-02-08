@@ -1,8 +1,8 @@
 import React, { FC, memo } from 'react';
 import styled from 'styled-components';
-import { ViewportWidthBreakpoints } from '../shared/constants';
-import strings from '../shared/strings';
-import colors from '../styles/colors';
+import { ViewportWidthBreakpoints } from '@shared/constants';
+import strings from '@shared/strings';
+import colors from '@styles/colors';
 
 const ScoreItemContainer = styled.div<{ backgroundColor: string }>`
   display: flex;

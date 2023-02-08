@@ -1,11 +1,11 @@
 import { FC, memo, useCallback } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import colors from '../../styles/colors';
-import Hit from '../../assets/Hit.png';
-import Miss from '../../assets/Miss.png';
-import { RootState } from '../../store/store';
-import { playerOneFire } from '../../store/gameSlice';
+import colors from '@styles/colors';
+import Hit from '@assets/Hit.png';
+import Miss from '@assets/Miss.png';
+import { RootState } from '@store/store';
+import { playerOneFire } from '@store/gameSlice';
 
 interface GridSquareProps {
   coordinates: { row: number; col: number };
@@ -47,10 +47,9 @@ const GridSquare: FC<GridSquareProps> = memo(({ coordinates }) => {
       key={`${coordinates.row}-${coordinates.col}-square`}
       onClick={onPressHandler}
     >
-      {fired && !hit && (
-        <img src={Miss} alt="miss" width="100%" height="100%" />
+      {fired && (
+        <img src={hit ? Hit : Miss} alt="miss" width="100%" height="100%" />
       )}
-      {fired && hit && <img src={Hit} alt="hit" width="100%" height="100%" />}
     </Square>
   );
 });

@@ -1,8 +1,9 @@
+/* eslint-disable react/no-array-index-key */
 import { FC, memo } from 'react';
 import styled from 'styled-components';
-import HitSmall from '../assets/Hit small.png';
-import MissSmall from '../assets/Miss small.png';
-import { ViewportWidthBreakpoints } from '../shared/constants';
+import HitSmall from '@assets/Hit small.png';
+import MissSmall from '@assets/Miss small.png';
+import { ViewportWidthBreakpoints } from '@shared/constants';
 
 interface ShipListItemProps {
   ship: string;
@@ -60,13 +61,16 @@ const Image = styled.img`
 
 const HitImage = styled.img`
   width: 0.7em;
+  height: 0.7em;
 
   @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
     width: 0.9em;
+    height: 0.9em;
   }
 
   @media only screen and (min-width: ${ViewportWidthBreakpoints.desktopMin}) {
     width: 1.5em;
+    height: 1.5em;
   }
 `;
 
@@ -86,12 +90,12 @@ const ShipListItem: FC<ShipListItemProps> = ({
             .fill(0)
             .map((_item, index) => {
               return (
-                <HitIndicatorContainer>
-                  {index + 1 <= hits ? (
-                    <HitImage src={HitSmall} alt="hit-miss" width={10} />
-                  ) : (
-                    <HitImage src={MissSmall} alt="hit-miss" width={10} />
-                  )}
+                <HitIndicatorContainer key={`${ship}-indicator-${index}`}>
+                  <HitImage
+                    src={index + 1 <= hits ? HitSmall : MissSmall}
+                    alt="hit-miss"
+                    width={10}
+                  />
                 </HitIndicatorContainer>
               );
             })}

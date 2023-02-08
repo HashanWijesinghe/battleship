@@ -1,9 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useRef, memo, FC } from 'react';
 import styled from 'styled-components';
-import GridSquare from '../components/gridSquare/GridSquare';
-import { ViewportWidthBreakpoints } from '../shared/constants';
-import colors from '../styles/colors';
+import GridSquare from '@src/components/GridSquare';
+import { ViewportWidthBreakpoints } from '@shared/constants';
+import colors from '@styles/colors';
 
 const GridContainer = styled.div<{
   width: number;

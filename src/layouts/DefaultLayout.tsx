@@ -2,13 +2,13 @@
 import { FC, memo } from 'react';
 import { Outlet } from 'react-router';
 import styled from 'styled-components';
-import AppBar from '../appBar/AppBar';
+import AppBar from '@src/components/AppBar';
 
 const Container = styled.div`
   height: 100vh;
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 `;
 
 const DefaultLayout: FC = () => {

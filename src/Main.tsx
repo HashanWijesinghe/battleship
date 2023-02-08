@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import { FC } from 'react';
 
-import Home from './home/Home';
-import DefaultLayout from './layouts/DefaultLayout';
-import NotFound from './pages/NotFound';
+import Home from '@pages/Home';
+import DefaultLayout from '@layouts/DefaultLayout';
+import NotFound from '@pages/NotFound';
 
 const Main: FC = () => (
   <Routes>

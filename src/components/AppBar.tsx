@@ -1,9 +1,9 @@
 import { FC, memo } from 'react';
 import styled from 'styled-components';
-import strings from '../shared/strings';
-import colors from '../styles/colors';
-import Battleship from '../assets/Battleship Shape without BG.png';
-import { ViewportWidthBreakpoints } from '../shared/constants';
+import strings from '@shared/strings';
+import colors from '@styles/colors';
+import Battleship from '@assets/Battleship Shape without BG.png';
+import { ViewportWidthBreakpoints } from '@shared/constants';
 
 const Container = styled.div`
   background-color: ${colors.cobalite};

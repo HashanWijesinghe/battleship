@@ -1,11 +1,11 @@
 import React, { FC, memo } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import ScoreItem from '../scoreItem/ScoreItem';
-import { ViewportWidthBreakpoints } from '../shared/constants';
-import strings from '../shared/strings';
-import { RootState } from '../store/store';
-import colors from '../styles/colors';
+import ScoreItem from '@src/components/ScoreItem';
+import { ViewportWidthBreakpoints } from '@shared/constants';
+import strings from '@shared/strings';
+import { RootState } from '@store/store';
+import colors from '@styles/colors';
 
 const Container = styled.div`
   flex: 1;

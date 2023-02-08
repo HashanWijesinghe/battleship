@@ -1,15 +1,15 @@
 import React, { FC, memo } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import Aircraft from '../assets/Aircraft Shape.png';
-import Battleship from '../assets/Battleship Shape.png';
-import Carrier from '../assets/Carrier Shape.png';
-import Cruiser from '../assets/Cruiser Shape.png';
-import Submarine from '../assets/Submarine Shape.png';
-import ShipListItem from '../shipListItem/ShipListItem';
+import Aircraft from '@assets/Aircraft Shape.png';
+import Battleship from '@assets/Battleship Shape.png';
+import Carrier from '@assets/Carrier Shape.png';
+import Cruiser from '@assets/Cruiser Shape.png';
+import Submarine from '@assets/Submarine Shape.png';
+import ShipListItem from '@src/components/ShipListItem';
+import { RootState } from '@store/store';
+import { ViewportWidthBreakpoints } from '@shared/constants';
 import mock from '../mockData.json';
-import { ViewportWidthBreakpoints } from '../shared/constants';
-import { RootState } from '../store/store';
 
 const ShipTypes: { [x: string]: string } = {
   battleship: Battleship,
