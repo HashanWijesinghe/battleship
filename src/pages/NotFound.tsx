@@ -2,6 +2,8 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Lottie from 'react-lottie';
+import NotFoundAnimation from '../animations/93190-404-page-not-found.json';
 
 const Container = styled.div`
   display: flex;
@@ -16,6 +18,14 @@ const Container = styled.div`
 const NotFound: FC = (): JSX.Element => {
   return (
     <Container>
+      <Lottie
+        options={{
+          loop: true,
+          animationData: NotFoundAnimation,
+        }}
+        height={200}
+        width={200}
+      />
       <h3>Not Found</h3>
       <Link to="/">Go back to home.</Link>
     </Container>
