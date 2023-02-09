@@ -16,7 +16,7 @@ A simple Battleship game developed with React.
 
 - Currently, only implemented the turns for Player 1.
 - The score is calculated as `1` per successful hit.
-- With the successful hit indicator will show which enemy ship git hit and how many are remaining.
+- With the successful hit indicator will show which enemy ship got hit and how many are remaining.
 
 ## Run Locally
 
