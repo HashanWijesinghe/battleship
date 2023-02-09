@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import Modal from 'react-modal';
 import ShipList from '@src/components/ShipList';
 import Grid from '@src/components/Grid';
 import ScoreBoard from '@src/components/ScoreBoard';
 import { ViewportWidthBreakpoints } from '@shared/constants';
+import Lottie from 'react-lottie';
+import NotFoundAnimation from '../animations/93190-404-page-not-found.json';
+import CongratulationsModal from './CongratulationsModal';
 
 const Container = styled.div`
   display: flex;
@@ -103,6 +107,7 @@ const Home = () => {
           <ShipList />
         </ShipListContainer>
       </InfoContainer>
+      <CongratulationsModal />
     </Container>
   );
 };

@@ -5,7 +5,7 @@ import colors from '@styles/colors';
 import Hit from '@assets/Hit.png';
 import Miss from '@assets/Miss.png';
 import { RootState } from '@store/store';
-import { playerOneFire } from '@store/gameSlice';
+import { gameActions } from '@store/gameSlice';
 
 interface GridSquareProps {
   coordinates: { row: number; col: number };
@@ -39,14 +39,11 @@ const GridSquare: FC<GridSquareProps> = memo(({ coordinates }) => {
     if (fired) {
       return;
     }
-    dispatch(playerOneFire([coordinates.row, coordinates.col]));
+    dispatch(gameActions.playerOneFire([coordinates.row, coordinates.col]));
   }, [coordinates.col, coordinates.row, dispatch, fired]);
 
   return (
-    <Square
-      key={`${coordinates.row}-${coordinates.col}-square`}
-      onClick={onPressHandler}
-    >
+    <Square onClick={onPressHandler}>
       {fired && (
         <img src={hit ? Hit : Miss} alt="miss" width="100%" height="100%" />
       )}

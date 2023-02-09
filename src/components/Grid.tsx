@@ -40,9 +40,12 @@ const Grid: FC = () => {
   return (
     <GridContainer width={windowSize.current[1]} height={windowSize.current[0]}>
       {grid.current.map((rowItem, rowIndex) => (
-        <Row>
+        <Row key={`grid-row-${rowIndex}`}>
           {grid.current[rowIndex].map((colItem, colIndex) => (
-            <GridSquare coordinates={{ row: rowIndex, col: colIndex }} />
+            <GridSquare
+              key={`grid-square-${rowIndex}-${colIndex}`}
+              coordinates={{ row: rowIndex, col: colIndex }}
+            />
           ))}
         </Row>
       ))}
