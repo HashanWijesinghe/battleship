@@ -25,18 +25,11 @@ const Header = styled.h4`
   @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
     font-size: 2em;
   }
-  @media only screen and (min-width: ${ViewportWidthBreakpoints.desktopMin}) {
-  }
 `;
 
 const AppBar: FC = () => (
   <Container>
-    <img
-      src={Battleship}
-      alt="battleship"
-      width={40}
-      style={{ color: 'white' }}
-    />
+    <img src={Battleship} alt="battleship" width={40} />
     <Header>{strings.battleship.toUpperCase()}</Header>
   </Container>
 );

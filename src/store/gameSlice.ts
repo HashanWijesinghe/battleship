@@ -5,6 +5,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import strings from '@shared/strings';
 import mockData from '@src/mockData.json';
 import { GameState } from '@src/shared/types';
+import { checkIsHit } from '@src/services/gameServices';
 
 const initialState: GameState = {
   player1: {
@@ -28,26 +29,20 @@ const playerOneFire = (
   state: GameState,
   action: PayloadAction<[row: number, column: number]>
 ) => {
-  // check if its a hit
-  let isHit = false;
-  let ship = '';
-
-  state.player2.shipLayouts?.forEach((layout) => {
-    if (JSON.stringify(layout.positions).includes(`${action.payload}`)) {
-      isHit = true;
-      ship = layout.ship;
-    }
-  });
+  const { isHit, ship } = checkIsHit(
+    state.player2.shipLayouts || [],
+    action.payload
+  );
 
   // log shots
   state.player1.playerShots = [...state.player1.playerShots, action.payload];
 
-  // if hit increase score
+  // if its a hit then increase the score
   if (isHit) {
     state.player1.score = (state.player1.score || 0) + 1;
     state.player1.playerHits = [...state.player1.playerHits, action.payload];
 
-    // mark against ship
+    // mark hit against the ship
     state.player2.ownShipHits = {
       ...state.player2.ownShipHits,
       [ship]: (state.player2.ownShipHits[ship] || 0) + 1,

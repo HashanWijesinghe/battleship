@@ -24,7 +24,9 @@
       "@styles/*": ["./src/styles/*"],
       "@store/*": ["./src/store/*"],
       "@pages/*": ["./src/pages/*"],
-      "@layouts/*": ["./src/layouts/*"]
+      "@layouts/*": ["./src/layouts/*"],
+      "@animations/*": ["./src/animations/*"],
+      "@services/*": ["./src/services/*"]
     }
   },
   "include": ["src"]
