@@ -18,11 +18,8 @@ const Row = styled.div`
   margin-top: 5px;
   justify-content: flex-start;
   align-items: center;
-  flex: 0.33;
+  flex: 0.1;
   width: 100%;
-
-  @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
-  }
 `;
 
 const Column = styled.div`
