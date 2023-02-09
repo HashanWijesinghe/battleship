@@ -29,5 +29,6 @@
       "@services/*": ["./src/services/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["craco.config.js"]
 }
