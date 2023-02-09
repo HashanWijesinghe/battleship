@@ -1,9 +1,25 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useRef, memo, FC } from 'react';
+import { useRef, memo, FC } from 'react';
 import styled from 'styled-components';
 import GridSquare from '@src/components/GridSquare';
 import { ViewportWidthBreakpoints } from '@shared/constants';
 import colors from '@styles/colors';
+
+const GridOuterContainer = styled.div`
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+
+  @media only screen and (min-width: ${ViewportWidthBreakpoints.desktopMin}) {
+    flex: 1;
+    flex-direction: row-reverse;
+    align-self: flex-start;
+    justify-content: flex-end;
+  }
+`;
 
 const GridContainer = styled.div<{
   width: number;
@@ -35,21 +51,26 @@ const Row = styled.div`
 
 const Grid: FC = () => {
   const windowSize = useRef([window.innerHeight, window.innerWidth]);
-  const grid = useRef<Array<Array<number>>>(Array(10).fill(Array(10).fill(-1)));
+  const grid = useRef<number[][]>(Array(10).fill(Array(10).fill(-1)));
 
   return (
-    <GridContainer width={windowSize.current[1]} height={windowSize.current[0]}>
-      {grid.current.map((rowItem, rowIndex) => (
-        <Row key={`grid-row-${rowIndex}`}>
-          {grid.current[rowIndex].map((colItem, colIndex) => (
-            <GridSquare
-              key={`grid-square-${rowIndex}-${colIndex}`}
-              coordinates={{ row: rowIndex, col: colIndex }}
-            />
-          ))}
-        </Row>
-      ))}
-    </GridContainer>
+    <GridOuterContainer>
+      <GridContainer
+        width={windowSize.current[1]}
+        height={windowSize.current[0]}
+      >
+        {grid.current.map((rowItem, rowIndex) => (
+          <Row key={`grid-row-${rowIndex}`}>
+            {grid.current[rowIndex].map((colItem, colIndex) => (
+              <GridSquare
+                key={`grid-square-${rowIndex}-${colIndex}`}
+                coordinates={{ row: rowIndex, col: colIndex }}
+              />
+            ))}
+          </Row>
+        ))}
+      </GridContainer>
+    </GridOuterContainer>
   );
 };
 

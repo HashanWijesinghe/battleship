@@ -1,8 +1,7 @@
 /* eslint-disable react/no-array-index-key */
-import { FC, memo } from 'react';
+import { FC, memo, useRef } from 'react';
 import styled from 'styled-components';
-import HitSmall from '@assets/Hit small.png';
-import MissSmall from '@assets/Miss small.png';
+import { Images } from '@styles/images';
 import { ViewportWidthBreakpoints } from '@shared/constants';
 
 interface ShipListItemProps {
@@ -24,9 +23,6 @@ const Row = styled.div`
 
   @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
   }
-
-  @media only screen and (min-width: ${ViewportWidthBreakpoints.desktopMin}) {
-  }
 `;
 
 const Column = styled.div`
@@ -37,9 +33,6 @@ const Column = styled.div`
 
   @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
   }
-
-  @media only screen and (min-width: ${ViewportWidthBreakpoints.desktopMin}) {
-  }
 `;
 
 const HitIndicatorContainer = styled.div`
@@ -49,9 +42,6 @@ const HitIndicatorContainer = styled.div`
   align-items: center;
 
   @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
-  }
-
-  @media only screen and (min-width: ${ViewportWidthBreakpoints.desktopMin}) {
   }
 `;
 
@@ -79,6 +69,7 @@ const ShipListItem: FC<ShipListItemProps> = ({
   maxHits = 0,
   ship,
 }) => {
+  const indicatorArrayRef = useRef<number[]>(Array(maxHits).fill(0));
   return (
     <Row>
       <Column>
@@ -86,19 +77,16 @@ const ShipListItem: FC<ShipListItemProps> = ({
       </Column>
       <Column>
         <Row>
-          {Array(maxHits)
-            .fill(0)
-            .map((_item, index) => {
-              return (
-                <HitIndicatorContainer key={`${ship}-indicator-${index}`}>
-                  <HitImage
-                    src={index + 1 <= hits ? HitSmall : MissSmall}
-                    alt="hit-miss"
-                    width={10}
-                  />
-                </HitIndicatorContainer>
-              );
-            })}
+          {indicatorArrayRef.current.map((_item, index) => {
+            return (
+              <HitIndicatorContainer key={`${ship}-indicator-${index}`}>
+                <HitImage
+                  src={index + 1 <= hits ? Images.HitSmall : Images.MissSmall}
+                  alt="hit-miss"
+                />
+              </HitIndicatorContainer>
+            );
+          })}
         </Row>
       </Column>
     </Row>

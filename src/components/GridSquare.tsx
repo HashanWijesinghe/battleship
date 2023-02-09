@@ -2,8 +2,7 @@ import { FC, memo, useCallback } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import colors from '@styles/colors';
-import Hit from '@assets/Hit.png';
-import Miss from '@assets/Miss.png';
+import { Images } from '@styles/images';
 import { RootState } from '@store/store';
 import { gameActions } from '@store/gameSlice';
 
@@ -19,33 +18,45 @@ const Square = styled.div`
   border-style: solid;
   justify-content: center;
   align-items: center;
+
+  transition: all300ms ease;
+
+  &:hover {
+    box-shadow: ${colors.galaxeaOpacity25} 0px 30px 60px -12px inset,
+      ${colors.blackOpacity30} 0px 18px 36px -18px inset;
+  }
 `;
 
 const GridSquare: FC<GridSquareProps> = memo(({ coordinates }) => {
   const dispatch = useDispatch();
 
-  const hit = useSelector((state: RootState) =>
+  const isHit = useSelector((state: RootState) =>
     JSON.stringify(state.game.player1.playerHits).includes(
       `${[coordinates.row, coordinates.col]}`
     )
   );
-  const fired = useSelector((state: RootState) =>
+  const isFired = useSelector((state: RootState) =>
     JSON.stringify(state.game.player1.playerShots).includes(
       `${[coordinates.row, coordinates.col]}`
     )
   );
 
   const onPressHandler = useCallback(() => {
-    if (fired) {
+    if (isFired) {
       return;
     }
     dispatch(gameActions.playerOneFire([coordinates.row, coordinates.col]));
-  }, [coordinates.col, coordinates.row, dispatch, fired]);
+  }, [coordinates.col, coordinates.row, dispatch, isFired]);
 
   return (
     <Square onClick={onPressHandler}>
-      {fired && (
-        <img src={hit ? Hit : Miss} alt="miss" width="100%" height="100%" />
+      {isFired && (
+        <img
+          src={isHit ? Images.Hit : Images.Miss}
+          alt="miss"
+          width="100%"
+          height="100%"
+        />
       )}
     </Square>
   );

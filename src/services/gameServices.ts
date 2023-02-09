@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { ShipLayout } from '@src/shared/types';
 
 export const checkIsHit = (

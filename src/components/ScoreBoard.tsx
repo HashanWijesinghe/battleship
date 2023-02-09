@@ -7,14 +7,13 @@ import strings from '@shared/strings';
 import { RootState } from '@store/store';
 import colors from '@styles/colors';
 
-const Container = styled.div`
-  flex: 1;
+const ScoreBoardContainer = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: row;
-
+  width: 100%;
   @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
-  }
-  @media only screen and (min-width: ${ViewportWidthBreakpoints.desktopMin}) {
+    flex: 3;
   }
 `;
 
@@ -27,7 +26,7 @@ const ScoreBoard: FC = () => {
   );
 
   return (
-    <Container>
+    <ScoreBoardContainer>
       <ScoreItem
         backgroundColor={colors.lemonChrome}
         name={strings.player1}
@@ -38,7 +37,7 @@ const ScoreBoard: FC = () => {
         name={strings.player2}
         score={player2Score}
       />
-    </Container>
+    </ScoreBoardContainer>
   );
 };
 

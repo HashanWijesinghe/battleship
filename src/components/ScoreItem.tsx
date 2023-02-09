@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import styled from 'styled-components';
 import { ViewportWidthBreakpoints } from '@shared/constants';
 import strings from '@shared/strings';
@@ -11,7 +11,8 @@ const ScoreItemContainer = styled.div<{ backgroundColor: string }>`
   flex: 1;
   background-color: ${(props) => props.backgroundColor};
   align-items: center;
-  padding: 5px;
+  padding: 0.2em;
+
   @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
     align-items: center;
   }
@@ -21,13 +22,16 @@ const ScoreItemContainer = styled.div<{ backgroundColor: string }>`
   }
 `;
 
-const ScoreText = styled.span`
+const scoreItemText = styled.span`
   font-family: sans-serif;
   font-weight: bold;
-  font-size: 30px;
   font-style: normal;
   color: ${colors.shadowedSteel};
-  padding-bottom: 5px;
+`;
+
+const ScoreText = styled(scoreItemText)`
+  font-size: 1.75em;
+  padding-bottom: 0.2em;
 
   @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
     font-size: 3em;
@@ -37,12 +41,9 @@ const ScoreText = styled.span`
   }
 `;
 
-const PlayerName = styled.span`
-  font-family: sans-serif;
-  font-weight: bold;
+const PlayerName = styled(scoreItemText)`
   font-size: 0.9em;
-  font-style: normal;
-  color: ${colors.shadowedSteel};
+  padding-bottom: 0.2em;
 
   @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
     font-size: 1em;
@@ -77,7 +78,7 @@ const ScoreItem: FC<ScoreItemProps> = ({
 }): JSX.Element => {
   return (
     <ScoreItemContainer backgroundColor={backgroundColor}>
-      <ScoreText>{score}</ScoreText>
+      <ScoreText>{score > 9 ? score : `0${score}`}</ScoreText>
       <HorizontalRuler />
       <PlayerName>{name}</PlayerName>
     </ScoreItemContainer>

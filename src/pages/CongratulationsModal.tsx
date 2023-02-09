@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ReactModal from 'react-modal';
 import Lottie from 'react-lottie';
 import styled from 'styled-components';
-import { ViewportWidthBreakpoints } from '@src/shared/constants';
+import { MAX_SCORE, ViewportWidthBreakpoints } from '@src/shared/constants';
 import colors from '@src/styles/colors';
 import strings from '@src/shared/strings';
 import { gameActions } from '@src/store/gameSlice';
@@ -20,9 +20,9 @@ const StyledModal = styled(ReactModal)`
   padding-top: 0;
   background-color: white;
   border-radius: 0.5em;
-  -webkit-box-shadow: 0px 3px 17px -6px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 3px 17px -6px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 3px 17px -6px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 3px 17px -6px ${colors.blackOpacity75};
+  -moz-box-shadow: 0px 3px 17px -6px ${colors.blackOpacity75};
+  box-shadow: 0px 3px 17px -6px ${colors.blackOpacity75};
 
   &:hover,
   &:focus {
@@ -42,9 +42,9 @@ const LottieContainer = styled.div`
   height: 100%;
   border-bottom-left-radius: 10em;
   border-bottom-right-radius: 10em;
-  -webkit-box-shadow: 0px 3px 17px -6px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0px 3px 17px -6px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 3px 17px -6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 3px 17px -6px ${colors.blackOpacity30};
+  -moz-box-shadow: 0px 3px 17px -6px ${colors.blackOpacity30};
+  box-shadow: 0px 3px 17px -6px ${colors.blackOpacity30};
 `;
 
 const Header = styled.span`
@@ -71,8 +71,8 @@ const Button = styled.button`
   transition: all300ms ease;
 
   &:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    box-shadow: ${colors.galaxeaOpacity25} 0px 30px 60px -12px inset,
+      ${colors.blackOpacity30} 0px 18px 36px -18px inset;
   }
 `;
 
@@ -87,11 +87,11 @@ if (ReactModal.defaultStyles.overlay) {
 }
 
 const CongratulationsModal: FC = () => {
-  const hasWon = useSelector(
-    (state: RootState) => state.game.player1.score === 17
-  );
-
   const dispatch = useDispatch();
+
+  const hasWon = useSelector(
+    (state: RootState) => state.game.player1.score === MAX_SCORE
+  );
 
   const [isVisible, setIsVisible] = useState<boolean>(false);
 

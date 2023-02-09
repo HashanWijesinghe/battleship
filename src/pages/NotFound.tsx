@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Lottie from 'react-lottie';
-import NotFoundAnimation from '../animations/93190-404-page-not-found.json';
+import NotFoundAnimation from '@animations/93190-404-page-not-found.json';
 
 const Container = styled.div`
   display: flex;

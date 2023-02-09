@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 import styled from 'styled-components';
 import strings from '@shared/strings';
 import colors from '@styles/colors';
-import Battleship from '@assets/Battleship Shape without BG.png';
+import { Images } from '@styles/images';
 import { ViewportWidthBreakpoints } from '@shared/constants';
 
 const Container = styled.div`
@@ -29,7 +29,7 @@ const Header = styled.h4`
 
 const AppBar: FC = () => (
   <Container>
-    <img src={Battleship} alt="battleship" width={40} />
+    <img src={Images.BattleshipLogo} alt="battleship" width={40} />
     <Header>{strings.battleship.toUpperCase()}</Header>
   </Container>
 );

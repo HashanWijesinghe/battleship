@@ -1,13 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
-import Modal from 'react-modal';
 import ShipList from '@src/components/ShipList';
 import Grid from '@src/components/Grid';
 import ScoreBoard from '@src/components/ScoreBoard';
 import { ViewportWidthBreakpoints } from '@shared/constants';
-import Lottie from 'react-lottie';
-import NotFoundAnimation from '../animations/93190-404-page-not-found.json';
-import CongratulationsModal from './CongratulationsModal';
+import CongratulationsModal from '@pages/CongratulationsModal';
 
 const Container = styled.div`
   display: flex;
@@ -33,54 +29,12 @@ const Container = styled.div`
   }
 `;
 
-const GridContainer = styled.div<{ flex?: number }>`
-  display: flex;
-  flex-shrink: 1.5;
-  align-self: center;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  width: 100%;
-
-  @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
-  }
-  @media only screen and (min-width: ${ViewportWidthBreakpoints.desktopMin}) {
-    flex: 1;
-    flex-direction: row-reverse;
-    align-self: flex-start;
-    justify-content: flex-end;
-  }
-`;
-
-const ScoreBoardContainer = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  width: 100%;
-  @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
-    flex: 3;
-  }
-  @media only screen and (min-width: ${ViewportWidthBreakpoints.desktopMin}) {
-  }
-`;
-
-const ShipListContainer = styled.div`
-  display: flex;
-  flex: 5;
-  flex-direction: row;
-  width: 100%;
-  @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
-    flex: 7;
-  }
-  @media only screen and (min-width: ${ViewportWidthBreakpoints.desktopMin}) {
-  }
-`;
-
 const InfoContainer = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
   width: 100%;
+
   @media only screen and (min-width: ${ViewportWidthBreakpoints.tabletMin}) and (max-width: ${ViewportWidthBreakpoints.tabletMax}) {
     flex-direction: row;
     flex: 1;
@@ -96,16 +50,10 @@ const InfoContainer = styled.div`
 const Home = () => {
   return (
     <Container>
-      <GridContainer>
-        <Grid />
-      </GridContainer>
+      <Grid />
       <InfoContainer>
-        <ScoreBoardContainer>
-          <ScoreBoard />
-        </ScoreBoardContainer>
-        <ShipListContainer>
-          <ShipList />
-        </ShipListContainer>
+        <ScoreBoard />
+        <ShipList />
       </InfoContainer>
       <CongratulationsModal />
     </Container>
