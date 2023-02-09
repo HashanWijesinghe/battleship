@@ -4,13 +4,13 @@ A simple Battleship game developed with React.
 
 ## Demo
 
-![](https://github.com/https://github.com/HashanWijesinghe/battleship/blob/develop/readMeContent/gamePlay.gif)
+![](https://github.com/HashanWijesinghe/battleship/blob/develop/readMeContent/gamePlay.gif)
 
 ## Screenshots
 
-![](https://github.com/https://github.com/HashanWijesinghe/battleship/blob/develop/readMeContent/Screenshot_desktop.png)
-![](https://github.com/https://github.com/HashanWijesinghe/battleship/blob/develop/readMeContent/Screenshot_ipad_mini.png)
-![](https://github.com/https://github.com/HashanWijesinghe/battleship/blob/develop/readMeContent/Screenshot_iphone_se.png)
+![](https://github.com/HashanWijesinghe/battleship/blob/develop/readMeContent/Screenshot_desktop.png)
+![](https://github.com/HashanWijesinghe/battleship/blob/develop/readMeContent/Screenshot_ipad_mini.png)
+![](https://github.com/HashanWijesinghe/battleship/blob/develop/readMeContent/Screenshot_iphone_se.png)
 
 ## Important
 
