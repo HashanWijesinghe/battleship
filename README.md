@@ -3,7 +3,7 @@
 A simple Battleship game developed with React.
 
 ## Demo
-
+Try the live demo [here](https://hashanwijesinghe.github.io/battleship/).
 ![](https://github.com/HashanWijesinghe/battleship/blob/develop/readMeContent/gamePlay.gif)
 
 ## Screenshots
@@ -50,4 +50,5 @@ Start the server
 
 ## Support
 
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hashanchathuranga/)
 For any discussions, email hashanrc@gmail.com.
